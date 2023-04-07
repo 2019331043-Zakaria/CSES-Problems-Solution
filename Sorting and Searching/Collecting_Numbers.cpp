@@ -1,6 +1,6 @@
 /*
 * @Author: Zakaria 
-* @Date:   2023-04-07 23:00:51
+* @Date:   2023-04-08 01:10:26
 * @Last Modified time: 2023-04-08 01:18:29
 */
 #include <bits/stdc++.h>
@@ -19,10 +19,32 @@ using namespace std;
 const int mod = 1e9+7;
 const int N = 2e5+6;
 
+int n;
+int a[N], pos[N];
+
 void Solve()
 {
         
-      
+        cin>>n;
+
+        for(int i=0 ; i<n ; i++)
+        	cin>>a[i], pos[a[i]] = i;
+
+        int low = pos[1];
+        int ans = 1;
+        for(int i=2 ; i<=n ; i++)
+        {
+        	if(i==1)
+        		continue;
+        	if(pos[i]>low)
+        		low = pos[i];
+        	else
+        		ans++, low = pos[i];
+        }
+
+        cout<<ans<<endl;
+
+
       
 }
  
@@ -34,7 +56,7 @@ int main()
         
         int tt=1;
         
-        cin>>tt;
+    //    cin>>tt;
         
         while(tt--)
         {
